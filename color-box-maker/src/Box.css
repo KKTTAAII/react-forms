@@ -1,0 +1,21 @@
+.Box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.Box-delete {
+    opacity: 0;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(185, 197, 209);
+    text-align: center;
+}
+
+.Box-delete:hover {
+    opacity: 0.5;
+    display: block;
+}
+

@@ -1,0 +1,22 @@
+.NewBoxForm-err{
+    font-size: smaller;
+    color: red;
+}
+
+.NewBoxForm-container {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.NewBoxForm-btn {
+    margin-top: 15px;
+    background-color: lightblue;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: darkblue;
+    height: 35px;
+}
