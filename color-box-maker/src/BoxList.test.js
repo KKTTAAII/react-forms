@@ -1,7 +1,7 @@
 import React from "react";
 import BoxList from "./BoxList";
 import { render, fireEvent, wait, waitFor } from "@testing-library/react";
-import userEvent from '@testing-library/user-event'
+import userEvent from "@testing-library/user-event";
 
 it("renders app w/o crashing", () => {
   render(<BoxList />);
@@ -18,16 +18,25 @@ it("should show form", () => {
 });
 
 it("should show a new box", async () => {
-  const { getByText, queryByText } = render(<BoxList />);
-  const height = getByText("Height:");
-  const width = getByText("Width:");
-  const color = getByText("Color:");
+  const { queryByText, queryByTestId } = render(<BoxList />);
+  const heightInput = queryByTestId("height-input");
+  const widthInput = queryByTestId("width-input");
+  const colorInput = queryByTestId("color-input");
   const btn = queryByText("Make a box!");
-  userEvent.type(height, "50");
-  userEvent.type(width, "50");
-  userEvent.type(color, "red");
-  userEvent.click(btn);
-  await waitFor(() => {
-    expect("x").toBeInTheDocument();
+  fireEvent.change(heightInput, { target: { value: "50" } });
+  fireEvent.change(widthInput, { target: { value: "50" } });
+  fireEvent.change(colorInput, { target: { value: "red" } });
+  fireEvent.click(btn);
+  await wait(() => {
+    expect(queryByText("x")).toBeInTheDocument();
+  });
+});
+
+it("shows error when fields are not filled", async () => {
+  const { queryByText } = render(<BoxList />);
+  const btn = queryByText("Make a box!");
+  fireEvent.click(btn);
+  await wait(() => {
+    expect(queryByText("Width is required")).toBeInTheDocument();
   });
 });

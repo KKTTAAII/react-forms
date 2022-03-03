@@ -18,9 +18,7 @@ const Box = ({ width, height, color, deleteBox, id }) => {
       <button
         className="Box-delete"
         onClick={e => handleDelete(e.target.parentNode.id)}
-      >
-        x
-      </button>
+      >x</button>
     </div>
   );
 };

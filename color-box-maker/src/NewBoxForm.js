@@ -39,34 +39,37 @@ const NewBoxForm = ({ addBox }) => {
           <form onSubmit={handleSubmit} className="NewBoxForm-form">
             <label htmlFor="width">Width:</label>
             <input
+              data-testid="width-input" 
               id="width"
               type="number"
               name="width"
               value={values.width}
-              onChange={(e) => handleChange(e.target.value)}
+              onChange={handleChange}
             ></input>
             {errors.width && touched.width ? (
               <div className="NewBoxForm-err">{errors.width}</div>
             ) : null}
             <label htmlFor="height">Height:</label>
             <input
+              data-testid= "height-input" 
               id="height"
               type="number"
               name="height"
               value={values.height}
-              onChange={(e) => handleChange(e.target.value)}
+              onChange={handleChange}
             ></input>
             {errors.height && touched.height ? (
               <div className="NewBoxForm-err">{errors.height}</div>
             ) : null}
             <label htmlFor="color">Color:</label>
             <input
+              data-testid= "color-input"
               id="color"
               type="text"
               name="color"
               value={values.color}
               placeholder="red"
-              onChange={(e) => handleChange(e.target.value)}
+              onChange={handleChange}
             ></input>
             {errors.color && touched.color ? (
               <div className="NewBoxForm-err">{errors.color}</div>
