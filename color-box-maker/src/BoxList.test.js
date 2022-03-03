@@ -1,7 +1,6 @@
 import React from "react";
 import BoxList from "./BoxList";
-import { render, fireEvent, wait, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { render, fireEvent, wait } from "@testing-library/react";
 
 it("renders app w/o crashing", () => {
   render(<BoxList />);

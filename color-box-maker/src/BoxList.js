@@ -2,23 +2,23 @@ import React, { useState } from "react";
 import Box from "./Box";
 import NewBoxForm from "./NewBoxForm";
 import { v4 as uuid } from "uuid";
-import "./BoxList.css"
+import "./BoxList.css";
 
 const BoxList = () => {
   const [boxes, setBoxes] = useState([]);
 
-  function addBox(box) {
+  const addBox = box => {
     let newBox = { ...box, id: uuid() };
     setBoxes(boxes => [...boxes, newBox]);
-  }
+  };
 
-  function deleteBox(id) {
+  const deleteBox = id => {
     setBoxes(boxes => {
       const copiedBoxes = [...boxes];
       const updatesBoxes = copiedBoxes.filter(box => box.id !== id);
       return updatesBoxes;
     });
-  }
+  };
 
   return (
     <div className="BoxList">
