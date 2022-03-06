@@ -28,13 +28,13 @@ it("should show a new todo", async () => {
 });
 
 it("shows error when fields are not filled", async () => {
-    const { queryByText, queryByTestId } = render(<TodoList />);
-    const todoInput = queryByTestId("todo-input");
-    fireEvent.change(todoInput, { target: { value: "walk the doggo" } });
-    fireEvent.change(todoInput, { target: { value: "" } });
-    const btn = queryByText("Add todo");
-    fireEvent.click(btn);
-    await wait(() => {
-      expect(queryByText("Todo is required")).toBeInTheDocument();
-    });
+  const { queryByText, queryByTestId } = render(<TodoList />);
+  const todoInput = queryByTestId("todo-input");
+  fireEvent.change(todoInput, { target: { value: "walk the doggo" } });
+  fireEvent.change(todoInput, { target: { value: "" } });
+  const btn = queryByText("Add todo");
+  fireEvent.click(btn);
+  await wait(() => {
+    expect(queryByText("Todo is required")).toBeInTheDocument();
   });
+});
